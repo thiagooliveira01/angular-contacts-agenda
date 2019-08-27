@@ -36,7 +36,7 @@ export class ContactService {
   }
 
   //Criando
-  private postContact(contact :ContactInfo){
+  postContact(contact :ContactInfo){
     const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Authorization', this.token);

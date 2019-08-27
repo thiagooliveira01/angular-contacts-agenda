@@ -8,7 +8,8 @@
         <div className='create-contact-details'>
             <input type='text' name='name' placeholder='Name'/>
             <input type='text' name='email' placeholder='Email'/>
-            <button>Add Contact</button>
+            <button (click)="addContact()" >Add Contact</button>
+            <div class="error" *ngIf="error">{{error}}</div>
         </div>
     </form>
 </div>
