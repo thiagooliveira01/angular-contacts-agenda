@@ -16,8 +16,6 @@ export class ListContactsComponent implements OnInit {
 
   ngOnInit() {
     this.getContacts();
-
-    console.log(this.listaContato);
   }
 
   getContacts(): void {
@@ -27,5 +25,11 @@ export class ListContactsComponent implements OnInit {
         data => (this.listaContato = data),
         error => (this.error = error)
       )
+  }
+  deleteContact(id) {
+    this.contactService.deleteContact(id).subscribe(res => {
+      console.log('Deletado');
+    });
+    this.getContacts();
   }
 }

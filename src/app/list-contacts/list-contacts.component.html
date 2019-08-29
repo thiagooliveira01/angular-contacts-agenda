@@ -1,5 +1,3 @@
-<p>list-contacts works!</p>
-
 <div class="mx-auto ">
     <h1 class="display-6 text-primary">Contatos</h1>
     <hr>		
@@ -7,8 +5,10 @@
         <ul class="lista-plano list-unstyled">
           <li *ngFor="let item of listaContato">
             {{item.name}}
+            
+            <button (click)="deleteContact(item.id)"  class="btn btn-danger">Deletar</button>
             <hr>
           </li>
         </ul>
       </div>
-  </div>
+</div>

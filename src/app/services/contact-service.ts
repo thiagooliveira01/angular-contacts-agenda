@@ -25,25 +25,25 @@ export class ContactService {
   }
 
   //Removendo
-  deleteContact(contact : ContactInfo){
-    let headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('Authorization', this.token);
+  deleteContact(id : string){
+    const Hheaders = new HttpHeaders()
+    .set('Accept', 'application/json')
+    .append('Authorization', '1');
 
-    const url = `${this.contactsUrl}/${contact.id}`;
+    const url = `${this.contactsUrl}/${id}`;
 
-    return this.http.delete<ContactInfo>(url).pipe(catchError(this.handleError));
+    return this.http.delete(url, { headers: Hheaders }).pipe(catchError(this.handleError));
   }
 
   //Criando
   postContact(contact :ContactInfo){
-    const headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('Authorization', this.token);
-    headers.append('Content-Type', 'application/json');
+    const Hheaders = new HttpHeaders()
+    .set('Accept', 'application/json')
+    .append('Authorization', '1')
+    .append('Content-Type', 'application/json');
 
     return this.http
-      .post<ContactInfo>(this.contactsUrl, contact)
+      .post<ContactInfo>(this.contactsUrl, contact, { headers: Hheaders })
       .pipe(catchError(this.handleError));
   }
 
