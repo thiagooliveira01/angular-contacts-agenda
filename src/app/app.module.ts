@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListContactsComponent } from './list-contacts/list-contacts.component';
 import { CreateContactComponent } from './create-contact/create-contact.component';
-
+import { ContactService } from './services/contact-service';
 import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

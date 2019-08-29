@@ -1,1 +1,15 @@
 <p>list-contacts works!</p>
+
+<div class="mx-auto ">
+    <h1 class="display-6 text-primary">Contatos</h1>
+    <hr>		
+    <div class="bg-light rounded p-4 box-shadow">
+        <ul class="lista-plano list-unstyled">
+          <li *ngFor="let item of listaContato">
+            {{item.name}}
+            <hr>
+          </li>
+          {{listaContato}}
+        </ul>
+      </div>
+  </div>

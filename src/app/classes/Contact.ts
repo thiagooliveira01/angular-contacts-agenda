@@ -4,4 +4,3 @@ export class ContactInfo {
   email: string;
   avatarURL: string;
 }
-  
