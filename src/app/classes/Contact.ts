@@ -4,3 +4,7 @@ export class ContactInfo {
   email: string;
   avatarURL: string;
 }
+
+export class RootObject {
+  contacts: ContactInfo[];
+}

@@ -9,7 +9,7 @@ import { ContactService } from '../services/contact-service';
 })
 export class ListContactsComponent implements OnInit {
 
-  public listaContato : ContactInfo[] = [];
+  public listaContato : ContactInfo[];
   error: any;
   
   constructor(private contactService: ContactService ) { }
@@ -27,6 +27,5 @@ export class ListContactsComponent implements OnInit {
         data => (this.listaContato = data),
         error => (this.error = error)
       )
-    
   }
 }

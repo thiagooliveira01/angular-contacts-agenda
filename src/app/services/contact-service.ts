@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ContactInfo } from '../classes/Contact';
+import { ContactInfo, RootObject } from '../classes/Contact';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError as observableThrowError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -20,8 +20,8 @@ export class ContactService {
     .append('Authorization', '1');
 
     return this.http
-      .get<ContactInfo[]>(this.contactsUrl, { headers: Hheaders })
-      .pipe(map(data => data ), catchError(this.handleError));
+      .get<RootObject>(this.contactsUrl, { headers: Hheaders })
+      .pipe(map(data => data.contacts ), catchError(this.handleError));
   }
 
   //Removendo
