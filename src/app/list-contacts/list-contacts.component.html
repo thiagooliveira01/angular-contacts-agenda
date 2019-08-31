@@ -1,14 +1,33 @@
+<div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="glyphicon glyphicon-search"></i>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          name="searchString"
+          placeholder="Pesquise por nome"
+          [(ngModel)]="searchString"
+        />
+      </div>
+</div>
+
 <div class="mx-auto ">
     <h1 class="display-6 text-primary">Contatos</h1>
     <hr>		
     <div class="bg-light rounded p-4 box-shadow">
-        <ul class="lista-plano list-unstyled">
-          <li *ngFor="let item of listaContato">
-            {{item.name}}
-            
+        <ol class="contato-list">
+          <li class="contato-list-item" *ngFor="let item of listaContato | filter : 'name' : searchString; let i = index">
+
+            <div class="contato-avatar" [ngStyle]="{'backgroundImage': 'url(' + item.avatarURL + ')'}"> </div>
+            <div className='contato-details'>
+                <p>{{item.name}}</p>
+                <p>{{item.email}}</p>
+            </div>
             <button (click)="deleteContact(item.id)"  class="btn btn-danger">Deletar</button>
             <hr>
           </li>
-        </ul>
+        </ol>
       </div>
 </div>
