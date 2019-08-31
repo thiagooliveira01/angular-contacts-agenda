@@ -1,21 +1,3 @@
-<!--
-<div>
-    <form onSubmit={this.handleSubmit} className='create-contact-form'>
-        <ImageInput
-            className='create-contact-avatar-input'
-            name='avatarURL'
-            maxHeight={64}
-        /> 
-        <div className='create-contact-details'>
-            <input type='text' name='name' placeholder='Name'/>
-            <input type='text' name='email' placeholder='Email'/>
-            <button (click)="addContact()" >Add Contact</button>
-            <div class="error" *ngIf="error">{{error}}</div>
-        </div>
-    </form>
-</div>
--->
-
 <div class="panel panel-primary">
     <div class="panel-heading">
     </div>
@@ -41,10 +23,20 @@
         </div>
         <div class="form-group">
             <label class="col-md-4">Avatar</label>
-            <input type="text" class="form-control" formControlName="avatarURL" #avatarURL/>
+
+            <label class="image-upload-container btn btn-bwm">
+                <input type="file"
+                       accept="image/*"
+                       (change)="processFile(avatarURL)"
+                       class="form-control" 
+                       formControlName="avatarURL" #avatarURL
+                       >
+              </label>
+
         </div>
+        
           <div class="form-group">
-            <button (click)="addContact(name.value, email.value, avatarURL.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+            <button (click)="addContact(name.value, email.value, avatarURL.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Adicionar</button>
           </div>
       </form>
     </div>
